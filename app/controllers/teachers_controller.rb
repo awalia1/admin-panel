@@ -29,7 +29,7 @@ class TeachersController < ApplicationController
   private
 
   def teacher_params
-    params.require(:teacher).permit(:name, :industry)
+    params.require(:teacher).permit(:name, :subject)
   end
 
   def find_teacher

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'users/index'
 
   resources :teachers do
-    resources :classes
+    resources :cohorts
     resources :students do
       delete 'terminate' => 'students#destroy'
     end
@@ -26,10 +26,10 @@ Rails.application.routes.draw do
   get 'students/edit'
   get 'students/index'
   get 'students/show'
-  get 'classes/new'
-  get 'classes/edit'
-  get 'classes/show'
-  get 'classes/index'
+  get 'cohorts/new'
+  get 'cohorts/edit'
+  get 'cohorts/show'
+  get 'cohorts/index'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
