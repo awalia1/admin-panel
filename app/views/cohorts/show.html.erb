@@ -1,5 +1,5 @@
 <h1><%= @cohort.name %></h1>
 <% @cohort.students.each do |e| %>
-  <%= e.full_name %> - #<%= e.sid %><br>
+  <%= e.full_name %> <br>
   <p><%= link_to 'Terminate', teacher_student_terminate_path(e.teacher_id, e.id), method: :delete, data: { confirm: 'Are you sure?', remote: true }, class: 'terminate'%></p>
 <% end %>

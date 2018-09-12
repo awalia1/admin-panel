@@ -9,7 +9,6 @@ class StudentsController < ApplicationController
     @teacher = Teacher.find(params[:teacher_id])
     @student = Student.new(student_params)
     @student.teacher_id = @teacher.id
-    @student.generate_sid
     if @student.save
       msg = "New student created!"
       redirect_to teacher_path(@student.teacher_id)
@@ -41,6 +40,6 @@ class StudentsController < ApplicationController
   private
 
   def student_params
-    params.require(:student).permit(:first_name, :last_name, :cohort_id)
+    params.require(:student).permit(:first_name, :last_name, :cohort_id, :education, :age, :teacher_id)
   end
 end

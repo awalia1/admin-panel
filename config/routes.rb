@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'courses/new'
+  get 'courses/create'
+  get 'courses/edit'
+  get 'courses/show'
+  get 'courses/index'
   root 'pages#home'
 
   get 'register' => 'users#new'
