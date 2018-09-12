@@ -1,18 +1,41 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/destroy'
   root 'pages#home'
-  
-  get 'users/new'
-  get 'users/create'
+
+  get 'register' => 'users#new'
   get 'users/edit'
   get 'users/show'
   get 'users/index'
 
-  get 'register' => 'users#new'
+  resources :teachers do
+    resources :classes
+    resources :students do
+      delete 'terminate' => 'students#destroy'
+    end
+  end
+
+  resources :users
+  resources :articles
+
+  get 'new-company' => 'teachers#new'
+  get 'myteachers' => 'teachers#index'
+  get 'teachers/new'
+  get 'teachers/edit'
+  get 'teachers/show'
+
+  get 'students/new'
+  get 'students/edit'
+  get 'students/index'
+  get 'students/show'
+  get 'classes/new'
+  get 'classes/edit'
+  get 'classes/show'
+  get 'classes/index'
 
   get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
+
   get 'pages/about'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+
