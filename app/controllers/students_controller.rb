@@ -2,7 +2,7 @@ class StudentsController < ApplicationController
   def new
     @teacher = Teacher.find(params[:teacher_id])
     @student = Student.new
-    @class = Class.where(teacher_id: @teacher.id)
+    @cohort = Cohort.where(teacher_id: @teacher.id)
   end
 
   def create
@@ -41,6 +41,6 @@ class StudentsController < ApplicationController
   private
 
   def student_params
-    params.require(:student).permit(:first_name, :last_name, :email, :class_id)
+    params.require(:student).permit(:first_name, :last_name, :email, :cohort_id)
   end
 end
