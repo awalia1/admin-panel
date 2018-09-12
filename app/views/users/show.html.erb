@@ -1,2 +1,4 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= @user.full_name %></h1>
+<h3>Employee #<%= @user.eid %></h3>
+<%= @user.photo.attachment.nil? ? 'User has no photo' : image_tag(@user.photo, size: '100x100') %>
+<p>You can reach <%= @user.first_name %> at <%= @user.email %>!
