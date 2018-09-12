@@ -1,2 +1,24 @@
-<h1>Students#new</h1>
-<p>Find me in app/views/students/new.html.erb</p>
+<h1>Add Student</h1>
+
+<%= form_for([@teacher, @student]) do |f| %>
+    <label>First name</label>
+    <%= f.text_field :first_name %><br>
+    <label>Last name</label>
+    <%= f.text_field :last_name %><br>
+    <label>Age</label>
+    <%= f.number_field(:age) %><br>
+    <label>Cohorts</label>
+    <%= f.collection_select :cohort_id, @cohort, :id, :name, { include_blank: true } %><br>
+    <label>Education</label>
+    <%= f.radio_button :education, 'High School', :checked => true %> 
+    <%= label :education_hs, 'High School' %><br>
+    <%= f.radio_button :education, 'College' %>
+    <%= label :education_college, 'College' %><br>
+    <%= f.radio_button :education, 'Masters'%> 
+    <%= label :education_masters, 'Masters' %><br>
+    <%= f.radio_button :education, 'PHD' %>
+    <%= label :education_phd, 'PHD' %>
+<p>
+  <%= f.submit 'Add Student' %>
+</p>
+<% end %>

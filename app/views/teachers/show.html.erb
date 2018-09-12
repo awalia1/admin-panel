@@ -1,2 +1,13 @@
-<h1>Teachers#show</h1>
-<p>Find me in app/views/teachers/show.html.erb</p>
+<h1><%= @teacher.first_name %></h1>
+<p><%= @teacher.subject %></p>
+
+<h3>Cohorts</h3>
+
+<% @teacher.cohorts.each do |coho| %>
+  <h5><%= link_to "#{coho.name}", teacher_cohort_path(@teacher.id, coho.id)  %></h5>
+<% end %>
+
+<hr>
+
+<%= link_to 'Create a cohort', new_teacher_cohort_path(@teacher.id) %>
+<%= link_to 'Add a student', new_teacher_student_path(@teacher.id) %>

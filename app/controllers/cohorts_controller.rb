@@ -1,4 +1,6 @@
 class CohortsController < ApplicationController
+
+  
   def new
     @teacher = Teacher.find(params[:teacher_id])
     @cohort = Cohort.new
@@ -29,7 +31,7 @@ class CohortsController < ApplicationController
   private
 
   def cohort_params
-    params.require(:cohort).permit(:name)
+    params.require(:cohort).permit(:first_name)
   end
 
   def find_cohort

@@ -14,7 +14,7 @@
     <ul>
   <li><%= link_to "Home", root_path %></li>
   <% if logged_in? %>
-    <li><%= link_to "#{current_user.email}", mycompanies_path %></li>
+    <li><%= link_to "#{current_user.email}", myteachers_path %></li>
     <li><%= link_to 'Log out', logout_path, method: :delete %></li>
     <li><%= link_to 'Add Teacher', new_teacher_path %></li>
   <% else %>

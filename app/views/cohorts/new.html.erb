@@ -1,2 +1,17 @@
-<h1>Classes#new</h1>
-<p>Find me in app/views/classes/new.html.erb</p>
+<h1>New cohort for <%= @teacher.first_name %></h1>
+
+<%= form_for([@teacher, @cohort]) do |f| %>
+
+<label>Name</label><br>
+<%= f.text_field :name %><br>
+
+<label>Start Date</label><br>
+<%= f.text_field :start_date %><br>
+
+<label>End Date</label><br>
+<%= f.text_field :end_date %><br>
+
+<p>
+<%= f.submit 'Create cohort' %>
+</p>
+<% end %>

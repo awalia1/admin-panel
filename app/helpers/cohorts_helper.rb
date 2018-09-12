@@ -1,2 +1,2 @@
-module ClassesHelper
+module CohortsHelper
 end

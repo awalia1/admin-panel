@@ -1,2 +1,28 @@
-<h1>Teachers#new</h1>
-<p>Find me in app/views/teachers/new.html.erb</p>
+<h1>Add Teacher</h1>
+
+<%= form_for(@teacher) do |f| %>
+  <label>First name</label>
+  <%= f.text_field :first_name %><br>
+  <label>Last name</label>
+  <%= f.text_field :last_name %><br>
+  <label>Subject</label>
+  <%= f.text_field :subject %><br>
+  <label>Age</label>
+  <%= f.number_field(:age) %><br>
+  <label>Education</label><br>
+  <%= f.radio_button :education, 'High School', :checked => true %> 
+  <%= label :education_hs, 'High School' %><br>
+  <%= f.radio_button :education, 'College' %>
+  <%= label :education_college, 'College' %><br>
+  <%= f.radio_button :education, 'Masters'%> 
+  <%= label :education_masters, 'Masters' %><br>
+  <%= f.radio_button :education, 'PHD' %>
+  <%= label :education_phd, 'PHD' %>
+ 
+ 
+
+<p>
+  <%= f.submit 'Add Teacher' %>
+</p>
+<% end %>
+
