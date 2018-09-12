@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AdminPanel</title>
+    <title>Admin Panel</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,19 @@
   </head>
 
   <body>
+
+    <ul>
+  <li><%= link_to "Home", root_path %></li>
+  <% if logged_in? %>
+    <li><%= link_to "#{current_user.email}", mycompanies_path %></li>
+    <li><%= link_to 'Log out', logout_path, method: :delete %></li>
+    <li><%= link_to 'Add Teacher', new_teacher_path %></li>
+  <% else %>
+    <li><%= link_to 'Register', register_path %></li>
+    <li><%= link_to 'Log In', login_path %></li>
+  <% end %>
+</ul>
+
     <%= yield %>
   </body>
 </html>
